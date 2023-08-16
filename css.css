@@ -1,0 +1,121 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 7px;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+ul{
+    list-style: none;
+}
+
+.post-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 40px;
+  justify-content: center;
+  gap:30px;
+}
+
+.post-item {
+    background-color:lightsteelblue;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    border-radius:20px;
+    padding:10px;
+    color:lightcyan;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    gap:7px;
+}
+
+.post-btn {
+    border-radius: 20px;
+    border-color:lightsteelblue;
+    border-style: solid;
+    background-color:lightcyan;
+    color:slategrey;
+    cursor: pointer;
+}
+
+.unvisible{
+    display: none;
+}
+/*
+.user-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 40px;
+  justify-content: center;
+  gap:30px;
+}*/
+
+.user-item {
+    background-color:lightsteelblue;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    border:1px solid rgba(0,0,0,0.2);
+    border-radius: 10px;
+    padding:10px;
+    color:lightcyan;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+}
+
+.post-title{
+    color:rgb(240, 150, 150);
+}
+
+.post-information {
+    flex-grow: 1;
+}
+
+.user-inform {
+    color:lightcyan;
+    background-color: pink;
+    border-radius: 80px;
+    padding:20px;
+    text-align: center;
+    font-weight: bolder;
+    font-size:20px;
+    border:1px solid rgba(0,0,0,0.1);
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.comment-item {
+    border:1px solid rgba(0,0,0,0.1);
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    margin-bottom: 10px;
+    border-radius: 100px;
+    font-size: 18px;
+    padding: 40px;
+    color:lightsteelblue;
+}
+
+.post-btn:hover {
+    background-color:rgb(240, 150, 150);;
+    color:lightcyan;
+
+}
+
+.comment-name {
+    color:rgb(240, 150, 150);
+}
