@@ -38,6 +38,12 @@ dialog{
   margin: auto;
 }
 
+::-webkit-scrollbar {
+        display: none;
+        visibility: hidden;
+        opacity: 0;
+}
+
 dialog :is(div, ul){
   width: 500px;
 }
