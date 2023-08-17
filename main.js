@@ -3,24 +3,9 @@ const userList = document.querySelector('.user-list');
 const commentList = document.querySelector('.comment-list');
 const dialogElement = document.querySelector('dialog');
 const close = document.querySelector('.close');
+const bodyDialog = document.querySelector('body');
 
-/*
-const myPost = (posts) => {
-    posts.forEach(post => {
-        postList.innerHTML += `
-        <li class="post-item">
-                <div class="post-information">
-                    <h5 class="user-id">UserId: ${post.userId} </h5>
-                    <h5 class="post-id">Id: ${post.id} </h5>
-                    <h5 class="post-title">Title: ${post.title} </h5>
-                    <h5 class="post-content">Content: ${post.body} </h5>
-                </div>
-                <button class="post-btn">Read more</button>
-            </li>
-        `
-        
-    });
-}*/
+
 close.addEventListener('click',closeDialog);
 function closeDialog(){
     dialogElement.close();
@@ -29,7 +14,6 @@ function closeDialog(){
 function openDialog(){
     dialogElement.showModal();
 }
-
 
 fetch('https://jsonplaceholder.typicode.com/posts')
       .then(response => response.json())

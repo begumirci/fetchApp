@@ -73,7 +73,9 @@ dialog::backdrop {
     background-color:lightcyan;
     color:rgb(240, 150, 150);
     font-weight: bold;
+    width:200px;
     cursor: pointer;
+    margin: auto;
 }
 
 .unvisible{
