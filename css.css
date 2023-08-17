@@ -33,6 +33,27 @@ ul{
   gap:30px;
 }
 
+dialog{
+  border-radius: 50px;
+  margin: auto;
+}
+
+dialog :is(div, ul){
+  width: 500px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom:20px;
+  color:rgb(240, 150, 150);
+  font-weight: bolder;
+
+}
+
+dialog::backdrop {
+    background-color: rgba(0,0,0,.7);
+}
+
 .post-item {
     background-color:lightsteelblue;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
@@ -50,34 +71,13 @@ ul{
     border-color:lightsteelblue;
     border-style: solid;
     background-color:lightcyan;
-    color:slategrey;
+    color:rgb(240, 150, 150);
+    font-weight: bold;
     cursor: pointer;
 }
 
 .unvisible{
     display: none;
-}
-/*
-.user-list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 40px;
-  justify-content: center;
-  gap:30px;
-}*/
-
-.user-item {
-    background-color:lightsteelblue;
-    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-    border:1px solid rgba(0,0,0,0.2);
-    border-radius: 10px;
-    padding:10px;
-    color:lightcyan;
-}
-
-.container {
-    display: flex;
-    flex-direction: row;
 }
 
 .post-title{
@@ -89,15 +89,26 @@ ul{
 }
 
 .user-inform {
-    color:lightcyan;
-    background-color: pink;
+    color:rgb(240, 150, 150);
+    background-color: lightsteelblue;
     border-radius: 80px;
     padding:20px;
     text-align: center;
     font-weight: bolder;
-    font-size:20px;
     border:1px solid rgba(0,0,0,0.1);
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.close{
+  background-color: lightcoral;
+  border-radius: 10px;
+  color:whitesmoke;
+  border-color: whitesmoke;
+  width: 200px;
+}
+
+.ortala {
+  text-align: center;
 }
 
 .comment-item {
@@ -105,15 +116,13 @@ ul{
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
     margin-bottom: 10px;
     border-radius: 100px;
-    font-size: 18px;
-    padding: 40px;
+    padding:30px;
     color:lightsteelblue;
 }
 
 .post-btn:hover {
     background-color:rgb(240, 150, 150);;
     color:lightcyan;
-
 }
 
 .comment-name {

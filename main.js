@@ -1,6 +1,8 @@
 const postList = document.querySelector('.post-list');
 const userList = document.querySelector('.user-list');
 const commentList = document.querySelector('.comment-list');
+const dialogElement = document.querySelector('dialog');
+const close = document.querySelector('.close');
 
 /*
 const myPost = (posts) => {
@@ -19,7 +21,14 @@ const myPost = (posts) => {
         
     });
 }*/
+close.addEventListener('click',closeDialog);
+function closeDialog(){
+    dialogElement.close();
+}
 
+function openDialog(){
+    dialogElement.showModal();
+}
 
 
 fetch('https://jsonplaceholder.typicode.com/posts')
@@ -47,6 +56,7 @@ fetch('https://jsonplaceholder.typicode.com/posts')
       function bindClick(){
         for (const btn of document.querySelectorAll('.post-btn')) {
             btn.addEventListener('click',usersTeam)
+            btn.addEventListener('click',openDialog)
         }
       }
 
@@ -68,7 +78,7 @@ fetch('https://jsonplaceholder.typicode.com/posts')
             console.log(userList);
             userList.innerHTML = `
             <div class="user-inform">
-                <h5 class="user-name">Name: ${Myusers.name} </h5>
+                <h5 class="user-name">Author Name: ${Myusers.name} </h5>
                 <h5 class="user-title">Username: ${Myusers.username} </h5>
                 <h5 class="user-mail">E-mail: ${Myusers.email} </h5>
             </div>`
