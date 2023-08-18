@@ -3,8 +3,11 @@ const userList = document.querySelector('.user-list');
 const commentList = document.querySelector('.comment-list');
 const dialogElement = document.querySelector('dialog');
 const close = document.querySelector('.close');
-const bodyDialog = document.querySelector('body');
 
+const prefix = 'https://jsonplaceholder.typicode.com/';
+
+let posts = [];
+let users = [];
 
 close.addEventListener('click',closeDialog);
 function closeDialog(){
@@ -13,83 +16,70 @@ function closeDialog(){
 
 function openDialog(){
     dialogElement.showModal();
+    commentLoad(this.dataset.postid)
 }
 
-fetch('https://jsonplaceholder.typicode.com/posts')
-      .then(response => response.json())
-      .then(posts => {
-        posts.forEach(post => {
-            postList.innerHTML += `
-        <li class="post-item">
-                <div class="post-information">
-                    <h5 class="user-id unvisible">${post.userId} </h5>
-                    <h5 class="post-id unvisible">${post.id} </h5>
+async function commentLoad(postId){
+
+  let commentDetail = await fetch(`${prefix}posts/${postId}/comments`).then(x => x.json());
+  showDetail(commentDetail);
+}
+
+function showDetail(commentDetail) {
+
+  commentList.innerHTML = '';
+
+  for (const comment of commentDetail) {
+
+    commentList.innerHTML += `
+               <li class="comment-item">
+                    <h5 class="comment-name">Comment name: ${comment.name} </h5>
+                    <h5 class="comment-mail">E-mail: ${comment.email} </h5>
+                    <h5 class="comment-content">Comment: ${comment.body} </h5>
+                </li> 
+    `
+  }
+
+}
+
+async function dataLoad(){
+  posts = await fetch(`${prefix}posts`).then(x => x.json());
+  users = await fetch(`${prefix}users`).then(x => x.json());
+  
+  render();
+}
+
+function render(){
+  for (const post of posts) {
+    let writer = users.find(x => x.id === post.userId)
+    postList.innerHTML += `
+    <li class="post-item">
+                <div class="post-inform">
+                  <div class="post-writer">
+                    <h5 class="user-name">Writer: ${writer.name} </h5>
+                    <h5 class="user-title">Username: ${writer.username}</h5>
+                    <h5 class="user-mail">E-mail: ${writer.email} </h5>
+                  </div>
                     <h5 class="post-title">Title: ${post.title} </h5>
                     <h5 class="post-content">Content: ${post.body} </h5>
+                    <div class="post-btn-konum">
+                    <button data-postid ="${post.id}" class="post-btn">more</button>
+                    </div>
                 </div>
-                <button class="post-btn">more</button>
             </li>
-        `
+    `
+  }
+  bindClick();
+}
 
-       bindClick();   
-       })
-         
-      })
-
-      
-      function bindClick(){
-        for (const btn of document.querySelectorAll('.post-btn')) {
-            btn.addEventListener('click',usersTeam)
-            btn.addEventListener('click',openDialog)
-        }
-      }
-
-    let Myusers;
-    let Mycomments; 
-
-      function usersTeam(e){
-        Mycomments = '';
-
-        let usersId = e.target.parentElement.children[0].children[0].innerText;
-        let postid = e.target.parentElement.children[0].children[1].innerText;
-        
-
-         fetch('https://jsonplaceholder.typicode.com/users')
-         .then(response => response.json())
-         .then(users => {
-            Myusers = users.find(x => x.id == usersId)
-            userList.innerText = '';
-            console.log(userList);
-            userList.innerHTML = `
-            <div class="user-inform">
-                <h5 class="user-name">Author Name: ${Myusers.name} </h5>
-                <h5 class="user-title">Username: ${Myusers.username} </h5>
-                <h5 class="user-mail">E-mail: ${Myusers.email} </h5>
-            </div>`
-         })
-        
-         fetch('https://jsonplaceholder.typicode.com/comments')
-         .then(response => response.json())
-         .then(comments =>{
-            commentList.innerText= '';
-            for (const yorum of comments) {
-                if(yorum.postId == postid){
-                    commentList.innerHTML += `
-                  <li class="comment-item">
-                    <h5 class="comment-name">Comment name: ${yorum.name}</h5>
-                    <h5 class="comment-mail">E-mail: ${yorum.email}</h5>
-                    <h5 class="comment-content">Comment: ${yorum.body}</h5>
-                  </li>`
-                }
-            }
-            })
-            
-         }
+function bindClick(){
+  for (const btn of document.querySelectorAll('.post-btn')) {
+    btn.addEventListener('click',openDialog)
+  }
+}
 
         
-
-        
-            
+dataLoad();            
             
             
             

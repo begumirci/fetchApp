@@ -80,6 +80,10 @@ dialog::backdrop {
     gap:7px;
 }
 
+.comment-header{
+  color:rgb(240, 150, 150);
+}
+
 .post-btn {
     border-radius: 20px;
     border-color:lightsteelblue;
@@ -89,9 +93,11 @@ dialog::backdrop {
     font-weight: bold;
     width:200px;
     cursor: pointer;
-    margin: auto;
 }
 
+.post-writer {
+  color:lightcoral;
+}
 .unvisible{
     display: none;
 }
@@ -133,6 +139,10 @@ dialog::backdrop {
   text-align: center;
 }
 
+.post-btn-konum{
+  text-align: center;
+}
+
 .comment-item {
     border:1px solid rgba(0,0,0,0.1);
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
@@ -149,4 +159,8 @@ dialog::backdrop {
 
 .comment-name {
     color:rgb(240, 150, 150);
+}
+
+.post-btn{
+  align-items: center;
 }
