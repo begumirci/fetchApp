@@ -31,6 +31,8 @@ function showDetail(commentDetail) {
 
   for (const comment of commentDetail) {
 
+    console.log(comment);
+
     commentList.innerHTML += `
                <li class="comment-item">
                     <h5 class="comment-name">Comment name: ${comment.name} </h5>

@@ -105,11 +105,12 @@ dialog::backdrop {
 .post-title{
     color:rgb(240, 150, 150);
 }
-
-.post-information {
-    flex-grow: 1;
+.post-inform {
+  display: flex;
+  flex-direction: column;
+  
+  
 }
-
 .user-list{
   padding:0;
   margin-top:10px;
@@ -133,6 +134,7 @@ dialog::backdrop {
   color:whitesmoke;
   border-color: whitesmoke;
   width: 200px;
+  cursor:pointer;
 }
 
 .ortala {
